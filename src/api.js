@@ -21,7 +21,7 @@ export async function createTodo(todo) {
 }
 
 export async function deleteTodo(id) {
-    const response = await fetch(`${BASE_URL}/${id}`, {
+    const response = await fetch(`${BASE_URL}${id}`, {
         method: 'DELETE'
     });
     if (!response.ok) {
@@ -44,7 +44,7 @@ export async function updateTodo(id, updates) {
 }
 
 export async function markTodoAsCompleted(id) {
-    const response = await fetch(`${BASE_URL}/${id}/complete`, {
+    const response = await fetch(`${BASE_URL}${id}/complete`, {
         method: 'PATCH'
     });
     if (!response.ok) {
