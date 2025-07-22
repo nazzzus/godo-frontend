@@ -26,6 +26,15 @@ const TodoList = () => {
     fetchTodos();
   };
 
+  const createTodo = async (id) => {
+    const newTodo = {
+      title: "Neues Todo",
+      description: "Beschreibung des neuen Todos"
+    };
+    await createTodo(newTodo);
+    fetchTodos();
+  }
+
   const handleComplete = async (id) => {
     await markTodoAsCompleted(id);
     fetchTodos();
@@ -34,6 +43,9 @@ const TodoList = () => {
   return (
     <div>
       <h2>📝 Meine Todos</h2>
+      <button onClick={fetchTodos}>🔄 Aktualisieren</button>
+      <button onClick={() => setTodos([])}>🗑️ Alle Todos löschen</button>
+      <button onClick={() => createTodo([])}> Todo hinzufügen</button>
       {todos.length === 0 && <p>Keine Todos vorhanden</p>}
       <ul>
         {todos.map((todo) => (
